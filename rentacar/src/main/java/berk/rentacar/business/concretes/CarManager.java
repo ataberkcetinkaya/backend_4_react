@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import berk.rentacar.business.abstracts.CarService;
 import berk.rentacar.core.utilities.results.DataResult;
+import berk.rentacar.core.utilities.results.Result;
 import berk.rentacar.core.utilities.results.SuccessDataResult;
+import berk.rentacar.core.utilities.results.SuccessResult;
 import berk.rentacar.dataAccess.abstracts.CarDao;
 import berk.rentacar.entities.concretes.Car;
 
@@ -27,5 +29,11 @@ public class CarManager implements CarService {
 		
 		return new SuccessDataResult<List<Car>>
 		(this.carDao.findAll(), "Data Listed.");			
+	}
+
+	@Override
+	public Result add(Car car) {
+		this.carDao.save(car);
+		return new SuccessResult("Car added.");
 	}
 }
