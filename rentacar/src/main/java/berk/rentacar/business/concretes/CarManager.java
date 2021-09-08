@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import berk.rentacar.business.abstracts.CarService;
+import berk.rentacar.core.utilities.results.DataResult;
+import berk.rentacar.core.utilities.results.SuccessDataResult;
 import berk.rentacar.dataAccess.abstracts.CarDao;
 import berk.rentacar.entities.concretes.Car;
 
@@ -21,9 +23,9 @@ public class CarManager implements CarService {
 	}
 
 	@Override
-	public List<Car> getAll() {
+	public DataResult<List<Car>> getAll() {
 		
-		return this.carDao.findAll();
+		return new SuccessDataResult<List<Car>>
+		(this.carDao.findAll(), "Data Listed.");			
 	}
-
 }
