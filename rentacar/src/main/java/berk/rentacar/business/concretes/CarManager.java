@@ -36,4 +36,46 @@ public class CarManager implements CarService {
 		this.carDao.save(car);
 		return new SuccessResult("Car added.");
 	}
+
+	@Override
+	public DataResult<Car> getByCarName(String carName) {
+		return new SuccessDataResult<Car>
+		(this.carDao.getByCarName(carName), "Data Listed.");
+	}
+
+	@Override
+	public DataResult<Car> getByCarNameAndCategoryId(String carName, int categoryId) {
+		return new SuccessDataResult<Car>
+		(this.carDao.getByCarNameAndCategory(carName, categoryId), "Data Listed.");
+	}
+
+	@Override
+	public DataResult<List<Car>> getByCarNameOrCategoryId(String carName, int categoryId) {
+		return new SuccessDataResult<List<Car>>
+		(this.carDao.getByCarNameOrCategory(carName, categoryId), "Data Listed.");	
+	}
+
+	@Override
+	public DataResult<List<Car>> getByCategoryIdIn(List<Integer> categories) {
+		return new SuccessDataResult<List<Car>>
+		(this.carDao.getByCategoryIn(categories), "Data Listed.");
+	}
+
+	@Override
+	public DataResult<List<Car>> getByCarNameContains(String carName) {
+		return new SuccessDataResult<List<Car>>
+		(this.carDao.getByCarNameContains(carName), "Data Listed.");
+	}
+
+	@Override
+	public DataResult<List<Car>> getByCarNameStartsWith(String carName) {
+		return new SuccessDataResult<List<Car>>
+		(this.carDao.getByCarNameStartsWith(carName), "Data Listed.");
+	}
+
+	@Override
+	public DataResult<List<Car>> getByNameAndCategory(String carName, int categoryId) {
+		return new SuccessDataResult<List<Car>>
+		(this.carDao.getByNameAndCategory(carName, categoryId), "Data Listed.");
+	}
 }
