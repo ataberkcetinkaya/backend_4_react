@@ -5,6 +5,7 @@ import java.util.List;
 import berk.rentacar.core.utilities.results.DataResult;
 import berk.rentacar.core.utilities.results.Result;
 import berk.rentacar.entities.concretes.Car;
+import berk.rentacar.entities.dtos.CarWithCategoryDto;
 
 public interface CarService {
 	DataResult<List<Car>> getAll();
@@ -25,4 +26,6 @@ public interface CarService {
 	DataResult<List<Car>> getByCarNameStartsWith(String carName);
 	
 	DataResult<List<Car>> getByNameAndCategory(String carName, int categoryId);
+
+	DataResult<List<CarWithCategoryDto>> getCarWithCategoryDetails();
 }

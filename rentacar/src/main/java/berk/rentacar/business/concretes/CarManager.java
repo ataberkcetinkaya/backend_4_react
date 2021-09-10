@@ -15,6 +15,7 @@ import berk.rentacar.core.utilities.results.SuccessDataResult;
 import berk.rentacar.core.utilities.results.SuccessResult;
 import berk.rentacar.dataAccess.abstracts.CarDao;
 import berk.rentacar.entities.concretes.Car;
+import berk.rentacar.entities.dtos.CarWithCategoryDto;
 
 @Service
 public class CarManager implements CarService {
@@ -94,5 +95,11 @@ public class CarManager implements CarService {
 	public DataResult<List<Car>> getAllSorted() {
 		Sort sort = Sort.by(Sort.Direction.DESC, "carName");
 		return new SuccessDataResult<List<Car>>(this.carDao.findAll(sort),"Done.");
+	}
+
+	@Override
+	public DataResult<List<CarWithCategoryDto>> getCarWithCategoryDetails() {
+		return new SuccessDataResult<List<CarWithCategoryDto>>
+		(this.carDao.getCarWithCategoryDetails(), "Data Listed.");
 	}
 }

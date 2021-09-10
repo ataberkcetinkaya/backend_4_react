@@ -15,6 +15,7 @@ import berk.rentacar.business.abstracts.CarService;
 import berk.rentacar.core.utilities.results.DataResult;
 import berk.rentacar.core.utilities.results.Result;
 import berk.rentacar.entities.concretes.Car;
+import berk.rentacar.entities.dtos.CarWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/cars")
@@ -32,6 +33,11 @@ public class CarsController {
 	@GetMapping("/getall")
 	public DataResult<List<Car>> getAll(){
 		return this.carService.getAll();
+	}
+	
+	@GetMapping("/getCarWithCategoryDetails")
+	public DataResult<List<CarWithCategoryDto>> getCarWithCategoryDetails(){
+		return this.carService.getCarWithCategoryDetails();
 	}
 	
 	@PostMapping("/add")
