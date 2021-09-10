@@ -43,4 +43,10 @@ public class CarsController {
 	public DataResult<Car> getByCarName(@RequestParam String carName) {
 		return this.carService.getByCarName(carName);
 	}
+	
+	@GetMapping("/getByCarNameAndCategoryId")
+	public DataResult<Car> 
+	getByCarNameAndCategoryId(@RequestParam ("carName") String carName, @RequestParam ("categoryId") int categoryId) {
+		return this.carService.getByCarNameAndCategoryId(carName, categoryId);
+	}
 }

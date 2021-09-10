@@ -12,7 +12,7 @@ public interface CarDao extends JpaRepository<Car, Integer>{
 		
 		Car getByCarName(String carName);
 		
-		Car getByCarNameAndCategory(String carName, int categoryId);
+		Car getByCarNameAndCategory_CategoryId(String carName, int categoryId);
 		
 		List<Car> getByCarNameOrCategory(String carName, int categoryId);
 
