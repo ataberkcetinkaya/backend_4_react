@@ -1,6 +1,7 @@
 package berk.rentacar.business.concretes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import berk.rentacar.business.abstracts.UserService;
 import berk.rentacar.core.dataAccess.UserDao;
@@ -10,6 +11,7 @@ import berk.rentacar.core.utilities.results.Result;
 import berk.rentacar.core.utilities.results.SuccessDataResult;
 import berk.rentacar.core.utilities.results.SuccessResult;
 
+@Service
 public class UserManager implements UserService {
 
 	private UserDao userDao; //sağ-click > source > generate constructor using fields
