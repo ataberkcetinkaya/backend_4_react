@@ -59,4 +59,9 @@ public class CarsController {
 	DataResult<List<Car>> getAll(int pageNo, int pageSize) {
 		return this.carService.getAll(pageNo, pageSize);
 	}
+	
+	@GetMapping("/getAllDesc")
+	public DataResult<List<Car>> getAllSorted() {
+		return this.carService.getAllSorted();
+	}
 }

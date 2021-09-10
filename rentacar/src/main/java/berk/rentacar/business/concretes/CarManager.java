@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import berk.rentacar.business.abstracts.CarService;
@@ -87,5 +88,11 @@ public class CarManager implements CarService {
 		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
 		
 		return new SuccessDataResult<List<Car>>(this.carDao.findAll(pageable).getContent());
+	}
+
+	@Override
+	public DataResult<List<Car>> getAllSorted() {
+		Sort sort = Sort.by(Sort.Direction.DESC, "carName");
+		return new SuccessDataResult<List<Car>>(this.carDao.findAll(sort),"Done.");
 	}
 }
