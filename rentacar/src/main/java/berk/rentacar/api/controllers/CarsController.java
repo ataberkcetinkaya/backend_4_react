@@ -49,4 +49,14 @@ public class CarsController {
 	getByCarNameAndCategoryId(@RequestParam ("carName") String carName, @RequestParam ("categoryId") int categoryId) {
 		return this.carService.getByCarNameAndCategoryId(carName, categoryId);
 	}
+	
+	@GetMapping("/getByCarNameContains")
+	public DataResult<List<Car>> getByCarNameContains(@RequestParam String carName) {
+		return this.carService.getByCarNameContains(carName);
+	}
+	
+	@GetMapping("/getAllByPage")
+	DataResult<List<Car>> getAll(int pageNo, int pageSize) {
+		return this.carService.getAll(pageNo, pageSize);
+	}
 }

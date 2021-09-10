@@ -14,7 +14,7 @@ public interface CarDao extends JpaRepository<Car, Integer>{
 		
 		Car getByCarNameAndCategory_CategoryId(String carName, int categoryId);
 		
-		List<Car> getByCarNameOrCategory(String carName, int categoryId);
+		List<Car> getByCarNameOrCategory_CategoryId(String carName, int categoryId);
 
 		List<Car> getByCategoryIn(List<Integer> categories);
 

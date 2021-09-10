@@ -8,6 +8,7 @@ import berk.rentacar.entities.concretes.Car;
 
 public interface CarService {
 	DataResult<List<Car>> getAll();
+	DataResult<List<Car>> getAll(int pageNo, int pageSize);
 	Result add(Car car);
 	
 	DataResult<Car> getByCarName(String carName);
