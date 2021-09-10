@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import berk.rentacar.core.entities.User;
 
-public interface UserDao extends JpaRepository<User, Integer>{
-
+public interface UserDao extends JpaRepository<User, Integer> {
+	User findByEmail(String email);
 }
